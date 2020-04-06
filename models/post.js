@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: false,
     },
   });
-
+  //post belongs to user
   Post.associate = function(models) {
     Post.belongsTo(models.User, {
       foreignKey: {

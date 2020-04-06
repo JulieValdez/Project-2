@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS exampledb;
-CREATE DATABASE exampledb;
+DROP DATABASE IF EXISTS projectTwo_db;
+CREATE DATABASE projectTwo_db;
 
-DROP DATABASE IF EXISTS testdb;
-CREATE DATABASE testdb;
+DROP DATABASE IF EXISTS ProjectTwo_testdb;
+CREATE DATABASE ProjectTwo_testdb;

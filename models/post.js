@@ -11,6 +11,14 @@ module.exports = function(sequelize, DataTypes) {
     category: {
       type: DataTypes.STRING,
       allowNull: false,
+      values: [
+        "Fitness",
+        "Mental Health",
+        "Groceries",
+        "Recipes",
+        "Resources",
+        "Other",
+      ],
     },
     body: {
       type: DataTypes.TEXT,

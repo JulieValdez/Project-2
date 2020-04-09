@@ -1,4 +1,4 @@
-//API
+//API//
 //GET all posts from database
 //if a user is logged in, they can create a post which POST to db
 

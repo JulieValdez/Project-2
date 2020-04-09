@@ -13,14 +13,14 @@ var checkJWT = function(req, res, next) {
 };
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  // Get all posts
+  app.get("/api/posts", function(req, res) {
+    db.Post.findAll({}).then(function(dbPosts) {
+      res.json(dbPosts);
     });
   });
 
-  // Create a new example
+  // Create a new user
   app.post("/api/user", function(req, res) {
     console.log("this is a POST/user");
 

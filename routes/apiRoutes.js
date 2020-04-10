@@ -15,7 +15,11 @@ var checkJWT = function(req, res, next) {
 module.exports = function(app) {
   // Get all posts
   app.get("/api/posts", function(req, res) {
-    db.Post.findAll({}).then(function(dbPosts) {
+    db.Post.findAll({
+      include: [{ model: db.User, as: "User", attributes: ["username"] }],
+    }).then(function(dbPosts) {
+      console.log(dbPosts);
+
       res.json(dbPosts);
     });
   });
@@ -53,10 +57,24 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/api/post", checkJWT, function(req, res) {
+  app.post("/api/post", function(req, res) {
+    const { subject, category, body } = req.body;
     console.log(req.user);
-
-    res.send("Posted");
+    console.log(req.body);
+    db.Post.create({
+      UserId: 1,
+      subject,
+      category,
+      body,
+      saved: false,
+    })
+      .then(function() {
+        return res.send(true);
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.status(406).send("Database could not validate.");
+      });
   });
 
   app.use(function(err, req, res, next) {

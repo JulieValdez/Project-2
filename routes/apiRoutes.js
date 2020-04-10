@@ -18,7 +18,7 @@ module.exports = function(app) {
     db.Post.findAll({
       include: [{ model: db.User, as: "User", attributes: ["username"] }],
     }).then(function(dbPosts) {
-      console.log(dbPosts);
+      // console.log(dbPosts);
 
       res.json(dbPosts);
     });
@@ -26,7 +26,7 @@ module.exports = function(app) {
 
   // Create a new user
   app.post("/api/user", function(req, res) {
-    console.log("this is a POST/user");
+    // console.log("this is a POST/user");
 
     db.User.create(req.body)
       .then(function() {
@@ -37,11 +37,11 @@ module.exports = function(app) {
         res.status(406).send("Database could not validate.");
       });
   });
-
+  //signing in api route
   app.post("/api/signin", function(req, res) {
     db.User.findOne({ where: { username: req.body.username } })
       .then(function(user) {
-        console.log(user);
+        // console.log(user);
         if (!user) {
           res.send("User not found.");
         }

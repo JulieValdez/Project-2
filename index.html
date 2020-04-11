@@ -24,7 +24,9 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#categories">Login</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/post.html">All Categories</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#exampleModalCenter">Login</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#exampleModalCenter">Sign Up</a></li>
                     </ul>
                 </div>
             </div>
@@ -69,23 +71,23 @@
             <div class="row justify-content-start">
                 <div class="col-sm-4 col-sm-4 text-center">
                     <div class="mt-5">
-                        <i class="fas fa-4x fa-running text-primary mb-4"></i>
-                        <h3 class="h4 mb-2">Fitness</h3>
+                        <a href="post.html"><i class="fas fa-4x fa-running text-primary mb-4"></i>
+                        <h3 class="h4 mb-2">Fitness</h3></a>
                         <p class="text-muted mb-0">Share your fitness tips and advice</p>
                     </div>
                 </div>
                 <div class="col-sm-4 col-sm-4 text-center">
                     <div class="mt-5">
-                        <i class="fas fa-4x fa-shopping-cart text-primary mb-4"></i>
-                        <h3 class="h4 mb-2">Groceries</h3>
+                        <a href="post.html"><i class="fas fa-4x fa-shopping-cart text-primary mb-4"></i>
+                        <h3 class="h4 mb-2">Groceries</h3></a>
                         <p class="text-muted mb-0">Great resources on finding great grocery deals</p>
 
                     </div>
                 </div>
                 <div class="col-sm-4 col-sm-4 text-center">
                     <div class="mt-5">
-                        <i class="fas fa-4x fa-hamburger text-primary mb-4"></i>
-                        <h3 class="h4 mb-2">Recipes</h3>
+                        <a href="post.html"><i class="fas fa-4x fa-hamburger text-primary mb-4"></i>
+                        <h3 class="h4 mb-2">Recipes</h3></a>
                         <p class="text-muted mb-0">Fun recipes to try at home</p>
                     </div>
                 </div>
@@ -94,22 +96,22 @@
             <div class="row">
                 <div class="col-sm-4 col-sm-4 text-center">
                     <div class="mt-5">
-                        <i class="fas fa-4x fa-clinic-medical text-primary mb-4"></i>
-                        <h3 class="h4 mb-2">Mental Health</h3>
+                        <a href="post.html"><i class="fas fa-4x fa-clinic-medical text-primary mb-4"></i>
+                        <h3 class="h4 mb-2">Mental Health</h3></a>
                         <p class="text-muted mb-0">Great online Mental Health resources</p>
                     </div>
                 </div>
                 <div class="col-sm-4 col-sm-4 text-center">
                     <div class="mt-5">
-                        <i class="fas fa-4x fa-toolbox text-primary mb-4"></i>
-                        <h3 class="h4 mb-2">Resources</h3>
+                        <a href="post.html"><i class="fas fa-4x fa-toolbox text-primary mb-4"></i>
+                        <h3 class="h4 mb-2">Resources</h3></a>
                         <p class="text-muted mb-0">Fun recipes to try at home</p>
                     </div>
                 </div>
                 <div class="col-sm-4 col-sm-4 text-center">
                     <div class="mt-5">
-                        <i class="fas fa-4x fa-glass-cheers text-primary mb-4"></i>
-                        <h3 class="h4 mb-2">Misc.</h3>
+                        <a href="post.html"><i class="fas fa-4x fa-glass-cheers text-primary mb-4"></i>
+                        <h3 class="h4 mb-2">Misc.</h3></a>
                         <p class="text-muted mb-0">Anything else you want to share</p>
                     </div>
                 </div>
@@ -124,8 +126,79 @@
         <div class="col text-center">
             <div class="mt-5">
                 <i class="fas fa-4x fa-sign-in-alt text-primary mb-4"></i>
-                <h3 class="h4 mb-2">Login</h3>
-                <p class="text-muted mb-0">Login to save your favorite posts</p>
+                <h3 class="h4 mb-2">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Login to Save
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Login to save your favorite posts</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div></h3>
+  <p class="text-muted mb-0">or</p>
+  <h3 class="h4 mb-2">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
+        Register if New
+      </button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">New? Register here</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div></h3>
             </div>
         </div>
         <hr class="divider my-4" />

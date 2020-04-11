@@ -8,10 +8,11 @@ var checkJWT = function(req, res, next) {
   try {
     var user = jwt.decode(req.token, process.env.JWT_SECRET);
   } catch (error) {
-    next();
+    console.log(error);
+
     return next({
       status: 401,
-      message: "token not validated"
+      message: "Unauthorized"
     });
   }
   req.user = user;
@@ -31,7 +32,7 @@ module.exports = function(app) {
   });
 
   // Create a new user
-  app.post("/api/user", function(req, res) {
+  app.post("/api/user", function(req, res, next) {
     // console.log("this is a POST/user");
 
     db.User.create(req.body)
@@ -40,27 +41,35 @@ module.exports = function(app) {
       })
       .catch(function(err) {
         console.log(err);
-        res.status(406).send("Database could not validate.");
+        return next({
+          status: 503,
+          message: "Error creating user"
+        });
       });
   });
   //signing in api route
-  app.post("/api/signin", function(req, res) {
-    db.User.findOne({ where: { username: req.body.username } })
-      .then(function(user) {
-        // console.log(user);
-        if (!user) {
-          res.send("User not found.");
+  app.post("/api/signin", function(req, res, next) {
+    db.User.findOne({ where: { username: req.body.username } }).then(function(
+      user
+    ) {
+      // console.log(user);
+      if (!user) {
+        return res.send("User not found.");
+      }
+      bcrypt.compare(req.body.password, user.password, function(err, result) {
+        if (err) {
+          return next({
+            status: 503,
+            message: "authentication didn't work"
+          });
         }
-        bcrypt.compare(req.body.password, user.password, function(err, result) {
-          if (result) {
-            return res.send(jwt.encode(user.id, process.env.JWT_SECRET));
-          }
-          return res.send("Unauthorized!");
-        });
-      })
-      .catch(function(error) {
-        res.send("Error");
+        if (result) {
+          return res.send({
+            token: jwt.encode(user.id, process.env.JWT_SECRET)
+          });
+        }
       });
+    });
   });
 
   app.post("/api/post", function(req, res) {
@@ -83,10 +92,6 @@ module.exports = function(app) {
       });
   });
 
-  app.use(function(err, req, res, next) {
-    res.send("error handler");
-  });
-
   //get posts from a specific category
   app.get("/api/category/:category", function(req, res) {
     db.Post.findAll({
@@ -107,4 +112,4 @@ module.exports = function(app) {
 //   ) {
 //     res.json(dbExample);
 //   });
-// });
+// };

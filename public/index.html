@@ -63,7 +63,7 @@
 <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">
-        <div class="container" id="categories">
+        <div class="container" id="categories" data-toggle="modal" data-target="#exampleModalCenter4">
             <hr class="divider my-4" />
             <h2 class="text-center mt-0">Categories</h2>
             <hr class="divider my-4" />
@@ -116,6 +116,34 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal category -->
+        <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content text-center">
+            <div class="modal-header">
+              <h5 class="modal-title text-center" id="exampleModalCenterTitle">Want to See More?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body text-center">
+         <!-- Button trigger Login -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Login
+  </button>
+  <p class="mx-auto">Or</p>
+  <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter1">
+    Register if New
+  </button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
   
       </div><!-- /category -->
   
@@ -126,7 +154,7 @@
             <div class="mt-5">
                 <i class="fas fa-4x fa-sign-in-alt text-primary mb-4"></i>
                 <h3 class="h4 mb-2">
-<!-- Button trigger modal -->
+<!-- Button trigger Login -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
     Login
   </button>
@@ -162,7 +190,7 @@
   </div></h3>
   <p class="text-muted mb-0">or</p>
   <h3 class="h4 mb-2">
-    <!-- Button trigger modal -->
+    <!-- Button trigger Register -->
     <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter1">
         Register if New
       </button>

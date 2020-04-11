@@ -5,7 +5,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       validate: {
         len: [1],
-        // eslint-disable-next-line prettier/prettier
       },
     },
     category: {

@@ -33,14 +33,15 @@
     <div class="container form">
       <div class="row">
         <div class="col-md-10 col-sm-10">
-          <select class="form-control">
-            <option>Select a Category</option>
-            <option>Fitness</option>
-            <option>Mental Health</option>
-            <option>Groceries</option>
-            <option>Recipes</option>
-            <option>Resources</option>
-            <option>Other</option>
+          <label for="viewCategoryDrop">Select Category</label>
+          <select class="form-control" id="viewCategoryDrop">
+            <option>Select</option>
+            <option value="fitness">Fitness</option>
+            <option value="mentalhealth">Mental Health</option>
+            <option value="groceries">Groceries</option>
+            <option value="recipes">Recipes</option>
+            <option value="resources">Resources</option>
+            <option value="other">Other</option>
           </select>
         </div>
       </div>
@@ -101,7 +102,7 @@
                 <label for="categorySelect">Select Category</label>
                 <select class="form-control" id="categorySelect">
                   <option value="fitness">Fitness</option>
-                  <option value="mental health">Mental Health</option>
+                  <option value="mentalhealth">Mental Health</option>
                   <option value="groceries">Groceries</option>
                   <option value="recipes">Recipes</option>
                   <option value="resources">Resources</option>

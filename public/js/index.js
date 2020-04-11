@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 // To Do:
-// clear the forms after submit
-// Login
+// clear the forms after submit? or will we take user somewhere new?
+// Login --getting an error, work w/Julie to understand database communication
 //logic for sorting posts by category
+//Logout?
 
 ///////////////////////////////////////
 
@@ -16,25 +17,9 @@ var regUserNameInput = $("#registeredUserName");
 var regUserPassword = $("#registeredPass");
 
 //AJAX GET and display all posts from db
-
 $.get("api/posts", function(data) {
-  console.log(data);
-
-  if (data.length !== 0) {
-    for (var i = 0; i < data.length; i++) {
-      var row = $("<div>");
-      row.addClass("post");
-      row.append("<p>" + data[i].User.username + " posted.. </p>");
-      row.append("<p>" + data[i].category + "</p>");
-      row.append("<p>" + data[i].body + "</p>");
-      row.append(
-        "<p>At " + moment(data[i].createdAt).format("h:mma on dddd") + "</p>"
-      );
-      row.append("____________________________________________");
-
-      postFeed.prepend(row);
-    }
-  }
+  // console.log(data);
+  renderPosts(data);
 });
 
 //func to handle an already registered user to login
@@ -68,7 +53,6 @@ $("#regUserLoginSubmit").on("click", function(event) {
 });
 
 // func to handle what happens when form submitted to create a new user
-
 $("#newUserSubmit").on("click", function(event) {
   event.preventDefault();
   // Don't do anything if a field hasn't been filled out
@@ -120,5 +104,39 @@ $("#newPostSubmit").on("click", function(event) {
       body: bodyInput,
       saved: false,
     }),
+  }).then(function() {
+    // Reload the page to get the updated list
+    location.reload();
   });
 });
+
+//func to handle when a specific category is selected for viewing
+$("select#viewCategoryDrop").change(function() {
+  // alert($(this).val());
+  let category = $(this).val();
+
+  $.get("api/category/" + category, function(data) {
+    // console.log(data);
+    renderPosts(data);
+  });
+});
+
+//function for rendering posts
+function renderPosts(data) {
+  if (data.length !== 0) {
+    postFeed.empty();
+    for (var i = 0; i < data.length; i++) {
+      var row = $("<div>");
+      row.addClass("post");
+      row.append("<p>" + data[i].User.username + " posted.. </p>");
+      row.append("<p>" + data[i].category + "</p>");
+      row.append("<p>" + data[i].body + "</p>");
+      row.append(
+        "<p>At " + moment(data[i].createdAt).format("h:mma on dddd") + "</p>"
+      );
+      row.append("____________________________________________");
+
+      postFeed.prepend(row);
+    }
+  }
+}

@@ -80,6 +80,18 @@ module.exports = function(app) {
   app.use(function(err, req, res, next) {
     res.send("error handler");
   });
+
+  //get posts from a specific category
+  app.get("/api/category/:category", function(req, res) {
+    db.Post.findAll({
+      where: { category: req.params.category },
+      include: [{ model: db.User, as: "User", attributes: ["username"] }],
+    }).then(function(dbPosts) {
+      // console.log(dbPosts);
+
+      res.json(dbPosts);
+    });
+  });
 };
 
 // Delete an example by id

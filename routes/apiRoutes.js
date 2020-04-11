@@ -2,11 +2,17 @@ var db = require("../models");
 var bcrypt = require("bcrypt");
 var jwt = require("jwt-simple");
 
+require("dotenv").config();
+
 var checkJWT = function(req, res, next) {
   try {
     var user = jwt.decode(req.token, process.env.JWT_SECRET);
   } catch (error) {
-    return next("token not validated");
+    next();
+    return next({
+      status: 401,
+      message: "token not validated"
+    });
   }
   req.user = user;
   next();
@@ -14,9 +20,9 @@ var checkJWT = function(req, res, next) {
 
 module.exports = function(app) {
   // Get all posts
-  app.get("/api/posts", function(req, res) {
+  app.get("/api/posts", checkJWT, function(req, res) {
     db.Post.findAll({
-      include: [{ model: db.User, as: "User", attributes: ["username"] }],
+      include: [{ model: db.User, as: "User", attributes: ["username"] }]
     }).then(function(dbPosts) {
       // console.log(dbPosts);
 
@@ -66,7 +72,7 @@ module.exports = function(app) {
       subject,
       category,
       body,
-      saved: false,
+      saved: false
     })
       .then(function() {
         return res.send(true);
@@ -85,7 +91,7 @@ module.exports = function(app) {
   app.get("/api/category/:category", function(req, res) {
     db.Post.findAll({
       where: { category: req.params.category },
-      include: [{ model: db.User, as: "User", attributes: ["username"] }],
+      include: [{ model: db.User, as: "User", attributes: ["username"] }]
     }).then(function(dbPosts) {
       // console.log(dbPosts);
 

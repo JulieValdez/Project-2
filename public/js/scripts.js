@@ -39,6 +39,11 @@
     offset: 75
   });
 
+  // Enable tooltips
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
   // Collapse Navbar
   var navbarCollapse = function() {
     if ($("#mainNav").offset().top > 100) {

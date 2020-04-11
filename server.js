@@ -29,6 +29,11 @@ app.use(express.static("public"));
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
+app.use(function(err, req, res, next) {
+  console.log(err);
+
+  res.send("error handler");
+});
 var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true

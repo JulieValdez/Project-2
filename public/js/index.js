@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-// To Do:
+// TO DO:///////////////////////////////
 // clear the forms after submit? or will we take user somewhere new?
 // Login --getting an error, work w/Julie to understand database communication
-//logic for sorting posts by category
-//Logout?
+// logic for sorting posts by category - tied to db?
+// Logout?
+// click on save button to save to a user's profile
+// make posts look better
 
 ///////////////////////////////////////
 
@@ -17,7 +19,15 @@ var regUserNameInput = $("#registeredUserName");
 var regUserPassword = $("#registeredPass");
 
 //AJAX GET and display all posts from db
-$.get("api/posts", function(data) {
+
+$.ajax({
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${localStorage.getItem("token")}`
+  },
+  type: "GET",
+  url: "api/posts"
+}).then(function(data) {
   // console.log(data);
   renderPosts(data);
 });
@@ -42,13 +52,14 @@ $("#regUserLoginSubmit").on("click", function(event) {
   $.ajax({
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`
     },
     type: "POST",
     url: "api/signin",
     data: JSON.stringify({
       username: username,
-      password: password,
-    }),
+      password: password
+    })
   });
 });
 
@@ -70,15 +81,15 @@ $("#newUserSubmit").on("click", function(event) {
 
   $.ajax({
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
     type: "POST",
     url: "api/user",
     data: JSON.stringify({
       username: username,
       password: password,
-      email: email,
-    }),
+      email: email
+    })
   });
 });
 
@@ -94,7 +105,7 @@ $("#newPostSubmit").on("click", function(event) {
 
   $.ajax({
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
     type: "POST",
     url: "api/post",
@@ -102,8 +113,8 @@ $("#newPostSubmit").on("click", function(event) {
       subject: subjInput,
       category: categoryInput,
       body: bodyInput,
-      saved: false,
-    }),
+      saved: false
+    })
   }).then(function() {
     // Reload the page to get the updated list
     location.reload();
@@ -128,7 +139,7 @@ function renderPosts(data) {
     for (var i = 0; i < data.length; i++) {
       var row = $("<div>");
       row.addClass("post");
-      row.append("<p>" + data[i].User.username + " posted.. </p>");
+      // row.append("<p>" + data[i].User.username + " posted.. </p>");
       row.append("<p>" + data[i].category + "</p>");
       row.append("<p>" + data[i].body + "</p>");
       row.append(

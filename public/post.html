@@ -59,24 +59,20 @@
                 <a class="nav-link js-scroll-trigger" href="#about">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="/post.html"
-                  >All Categories</a
+                <a
+                  class="nav-link js-scroll-trigger"
+                  data-toggle="modal"
+                  data-target="#exampleModalCenter3"
+                  >Post Something</a
                 >
               </li>
               <li class="nav-item">
                 <a
                   class="nav-link js-scroll-trigger"
-                  data-toggle="modal"
-                  data-target="#exampleModalCenter"
-                  >Login</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link js-scroll-trigger"
-                  data-toggle="modal"
-                  data-target="#exampleModalCenter"
-                  >Sign Up</a
+                  data-toggle="tooltip"
+                  data-placement="bottom"
+                  title="Coming Soon"
+                  >Sign Out</a
                 >
               </li>
             </ul>
@@ -156,20 +152,20 @@
             <div class="mt-5">
               <i class="fas fa-4x fa-sign-in-alt text-primary mb-4"></i>
               <h3 class="h4 mb-2">
-                <!-- Button trigger modal -->
-                <button
+                  <!-- Button trigger modal -->
+                  <button
                   type="button"
-                  class="btn btn-primary"
+                  class="btn btn-primary btn-lg"
                   data-toggle="modal"
-                  data-target="#exampleModalCenter"
+                  data-target="#exampleModalCenter3"
                 >
-                  Login to Save
+                  Make a Post
                 </button>
 
                 <!-- Modal -->
                 <div
                   class="modal fade"
-                  id="exampleModalCenter"
+                  id="exampleModalCenter3"
                   tabindex="-1"
                   role="dialog"
                   aria-labelledby="exampleModalCenterTitle"
@@ -181,8 +177,8 @@
                   >
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                          Login to save your favorite posts
+                        <h5 class="modal-title" id="exampleModalCenter3">
+                          Make a Post
                         </h5>
                         <button
                           type="button"
@@ -194,113 +190,44 @@
                         </button>
                       </div>
                       <div class="modal-body">
+                        <!-- Post Form -->
                         <form>
                           <div class="form-group">
-                            <label for="exampleInputEmail1"
-                              >Email address</label
-                            >
+                            <label for="subjectLineInput">Subject Line</label>
                             <input
-                              type="email"
+                              type="text"
                               class="form-control"
-                              id="exampleInputEmail1"
-                              aria-describedby="emailHelp"
+                              id="subjectLineInput"
+                              placeholder="What's Your Post About?"
                             />
-                            <small id="emailHelp" class="form-text text-muted"
-                              >We'll never share your email with anyone
-                              else.</small
-                            >
                           </div>
                           <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input
-                              type="password"
-                              class="form-control"
-                              id="exampleInputPassword1"
-                            />
+                            <label for="categorySelect">Select Category</label>
+                            <select class="form-control" id="categorySelect">
+                              <option value="fitness">Fitness</option>
+                              <option value="mentalhealth"
+                                >Mental Health</option
+                              >
+                              <option value="groceries">Groceries</option>
+                              <option value="recipes">Recipes</option>
+                              <option value="resources">Resources</option>
+                              <option value="other">Other</option>
+                            </select>
                           </div>
-                          <button type="submit" class="btn btn-primary">
-                            Submit
-                          </button>
-                        </form>
-                      </div>
-                      <div class="modal-footer">
-                        <button
-                          type="button"
-                          class="btn btn-secondary"
-                          data-dismiss="modal"
-                        >
-                          Close
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </h3>
-              <p class="text-muted mb-0">or</p>
-              <h3 class="h4 mb-2">
-                <!-- Button trigger modal -->
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-toggle="modal"
-                  data-target="#exampleModalCenter"
-                >
-                  Register if New
-                </button>
 
-                <!-- Modal -->
-                <div
-                  class="modal fade"
-                  id="exampleModalCenter"
-                  tabindex="-1"
-                  role="dialog"
-                  aria-labelledby="exampleModalCenterTitle"
-                  aria-hidden="true"
-                >
-                  <div
-                    class="modal-dialog modal-dialog-centered"
-                    role="document"
-                  >
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                          New? Register here
-                        </h5>
-                        <button
-                          type="button"
-                          class="close"
-                          data-dismiss="modal"
-                          aria-label="Close"
-                        >
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <form>
                           <div class="form-group">
-                            <label for="exampleInputEmail1"
-                              >Email address</label
-                            >
-                            <input
-                              type="email"
+                            <label for="textPostInput">Write Post Below</label>
+                            <textarea
                               class="form-control"
-                              id="exampleInputEmail1"
-                              aria-describedby="emailHelp"
-                            />
-                            <small id="emailHelp" class="form-text text-muted"
-                              >We'll never share your email with anyone
-                              else.</small
-                            >
+                              id="textPostInput"
+                              rows="3"
+                            ></textarea>
                           </div>
-                          <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input
-                              type="password"
-                              class="form-control"
-                              id="exampleInputPassword1"
-                            />
-                          </div>
-                          <button type="submit" class="btn btn-primary">
+                          <button
+                            type="submit"
+                            class="btn btn-primary"
+                            id="newPostSubmit"
+                          >
                             Submit
                           </button>
                         </form>

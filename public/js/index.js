@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 // TO DO:///////////////////////////////
-// clear the forms after submit? or will we take user somewhere new?
+
 // Login --getting an error, work w/Julie to understand database communication
 // logic for sorting posts by category - tied to db?
 // Logout?
@@ -19,7 +19,6 @@ var regUserNameInput = $("#registeredUserName");
 var regUserPassword = $("#registeredPass");
 
 //AJAX GET and display all posts from db
-
 $.ajax({
   headers: {
     "Content-Type": "application/json",

@@ -111,11 +111,7 @@
             <hr class="divider my-4" />
 
             <!-- Insert latest posts here -->
-            <div class="user-post" id="allPostFeed">
-              <!-- <h2>Sample user post</h2>
-                <p>January 1, 2014 by <a href="#">Username</a></p>
-                <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p> -->
-            </div>
+            <div class="user-post" id="allPostFeed"></div>
             <!-- end latest posts -->
           </div>
         </div>
@@ -125,26 +121,17 @@
         <aside class="col-md-4 blog-sidebar">
           <hr class="divider my-4" />
           <div class="dropdown text-center">
-            <button
-              class="btn btn-secondary dropdown-toggle bg-primary"
-              type="button"
-              id="dropdownMenuButton"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Categories
-            </button>
-            <div
-              class="dropdown-menu dropdown-menu-right"
-              aria-labelledby="dropdownMenuButton"
-            >
-              <a class="dropdown-item" href="#">Fitness</a>
-              <a class="dropdown-item" href="#">Mental Health</a>
-              <a class="dropdown-item" href="#">Groceries</a>
-              <a class="dropdown-item" href="#">Recipes</a>
-              <a class="dropdown-item" href="#">Resources</a>
-              <a class="dropdown-item" href="#">Other</a>
+            <div class="form-group">
+              <label for="viewCategoryDrop">Filter By Category</label>
+              <select class="form-control" id="viewCategoryDrop">
+                <option>Select</option>
+                <option value="Fitness">Fitness</option>
+                <option value="Mental Health">Mental Health</option>
+                <option value="Groceries">Groceries</option>
+                <option value="Recipes">Recipes</option>
+                <option value="Resources">Resources</option>
+                <option value="Other">Other</option>
+              </select>
             </div>
           </div>
           <hr class="divider my-4" />
@@ -152,8 +139,8 @@
             <div class="mt-5">
               <i class="fas fa-4x fa-sign-in-alt text-primary mb-4"></i>
               <h3 class="h4 mb-2">
-                  <!-- Button trigger modal -->
-                  <button
+                <!-- Button trigger modal -->
+                <button
                   type="button"
                   class="btn btn-primary btn-lg"
                   data-toggle="modal"
@@ -204,14 +191,15 @@
                           <div class="form-group">
                             <label for="categorySelect">Select Category</label>
                             <select class="form-control" id="categorySelect">
-                              <option value="fitness">Fitness</option>
-                              <option value="mentalhealth"
+                              <option>Select</option>
+                              <option value="Fitness">Fitness</option>
+                              <option value="Mental Health"
                                 >Mental Health</option
                               >
-                              <option value="groceries">Groceries</option>
-                              <option value="recipes">Recipes</option>
-                              <option value="resources">Resources</option>
-                              <option value="other">Other</option>
+                              <option value="Groceries">Groceries</option>
+                              <option value="Recipes">Recipes</option>
+                              <option value="Resources">Resources</option>
+                              <option value="Other">Other</option>
                             </select>
                           </div>
 

@@ -137,14 +137,24 @@ function renderPosts(data) {
     postFeed.empty();
     for (var i = 0; i < data.length; i++) {
       var row = $("<div>");
-      row.addClass("post");
+      row.addClass("card w-100");
+      var innerRow = $("<div class='card-body'>");
+
+      row.append(innerRow);
       // row.append("<p>" + data[i].User.username + " posted.. </p>");
-      row.append("<p>" + data[i].category + "</p>");
-      row.append("<p>" + data[i].body + "</p>");
-      row.append(
-        "<p>At " + moment(data[i].createdAt).format("h:mma on dddd") + "</p>"
+      innerRow.append("<h5 class='card-title'>" + data[i].subject + "</h5>");
+      innerRow.append("<hr>");
+      innerRow.append(
+        "<p class='card-text' id='cardTextCategory'>Category: " +
+          data[i].category +
+          "</p>"
       );
-      row.append("____________________________________________");
+      innerRow.append("<p class='card-text'>" + data[i].body + "</p>");
+      innerRow.append(
+        "<p class='card-text' id='card-text-moment'>At " +
+          moment(data[i].createdAt).format("h:mma on dddd") +
+          "</p>"
+      );
 
       postFeed.prepend(row);
     }

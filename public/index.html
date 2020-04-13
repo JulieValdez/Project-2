@@ -60,16 +60,14 @@
             <li class="nav-item">
               <a
                 class="nav-link js-scroll-trigger"
-                data-toggle="modal"
-                data-target="#exampleModalCenter"
+                href="#login"
                 >Login</a
               >
             </li>
             <li class="nav-item">
               <a
                 class="nav-link js-scroll-trigger"
-                data-toggle="modal"
-                data-target="#exampleModalCenter1"
+                href="#register"
                 >Sign Up</a
               >
             </li>
@@ -128,9 +126,7 @@
           <div
             class="container"
             id="categories"
-            data-toggle="modal"
-            data-target="#exampleModalCenter4"
-          >
+            >
             <hr class="divider my-4" />
             <h2 class="text-center mt-0">Categories</h2>
             <hr class="divider my-4" />
@@ -191,7 +187,7 @@
 
           <!-- Modal category -->
           <!-- Modal -->
-          <div
+          <!-- <div
             class="modal fade"
             id="exampleModalCenter4"
             tabindex="-1"
@@ -217,9 +213,9 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body text-center">
+                <div class="modal-body text-center"> -->
                   <!-- Button trigger Login -->
-                  <button
+                  <!-- <button
                     type="button"
                     class="btn btn-primary"
                     data-toggle="modal"
@@ -248,7 +244,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <!-- /category -->
 
@@ -257,20 +253,75 @@
           <hr class="divider my-4" />
           <div class="col text-center">
             <div class="mt-5">
-              <i class="fas fa-4x fa-sign-in-alt text-primary mb-4"></i>
-              <h3 class="h4 mb-2">
+              <!-- <i class="fas fa-4x fa-sign-in-alt text-primary mb-4"></i> -->
+              <h3 class="h4 mb-2 ">
+                <!-- Login  -->
+            <h4 id="login">Login</h4>
+            <form action="post.html">
+              <div class="form-group">
+                <label for="registeredUserName">User Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="registeredUserName"
+                />
+              </div>
+              <div class="form-group">
+                <label for="registeredPass">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="registeredPass"
+                />
+              </div>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                id="regUserLoginSubmit"
+              >
+                Submit
+              </button>
+
+              <hr class="divider my-4" />
+              <!-- <h3 class="h4 mb-2"> -->
+<!-- userNameInput -->
+<form action="post.html">
+  <h4 id="register">Register</h4>
+    <div class="form-group">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" />
+    </div>
+    <div class="form-group">
+      <label for="userNameInput">User Name</label>
+      <input type="text" class="form-control" id="userNameInput" />
+    </div>
+    <div class="form-group">
+      <label for="inputPassword4">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="inputPassword4"
+      />
+    </div>
+
+  <button type="submit" class="btn btn-primary" id="newUserSubmit">
+    Submit
+  </button>
+</form>
+
+
                 <!-- Button trigger Login -->
-                <button
+                <!-- <button
                   type="button"
                   class="btn btn-primary"
                   data-toggle="modal"
                   data-target="#exampleModalCenter"
                 >
                   Login
-                </button>
+                </button> -->
 
                 <!-- Modal -->
-                <div
+                <!-- <div
                   class="modal fade"
                   id="exampleModalCenter"
                   tabindex="-1"
@@ -335,18 +386,18 @@
               </h3>
               <p class="text-muted mb-0">or</p>
               <h3 class="h4 mb-2">
-                <!-- Button trigger Register -->
-                <button
+              Button trigger Register -->
+                <!-- <button
                   type="button"
                   class="btn btn-secondary"
                   data-toggle="modal"
                   data-target="#exampleModalCenter1"
                 >
                   Register if New
-                </button>
+                </button> -->
 
                 <!-- Modal -->
-                <div
+                <!-- <div
                   class="modal fade"
                   id="exampleModalCenter1"
                   tabindex="-1"
@@ -430,8 +481,8 @@
                 </div>
               </h3>
             </div>
-          </div>
-          <hr class="divider my-4" />
+          </div> -->
+          <!-- <hr class="divider my-4" />
           <div class="col text-center">
             <div class="mt-5">
               <i class="fas fa-4x fa-clipboard text-primary mb-4"></i>
@@ -443,7 +494,7 @@
                 voluptatum, debitis tenetur quaerat a.
               </p>
             </div>
-          </div>
+          </div> -->
         </aside>
         <!-- /-sidebar -->
       </div>

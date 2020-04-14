@@ -32,6 +32,10 @@ require("./routes/htmlRoutes")(app);
 app.use(function(err, req, res, next) {
   console.log(err);
 
+  if (err.status && err.message) {
+    return res.status(err.status).send(err.message);
+  }
+
   res.send("error handler");
 });
 var syncOptions = { force: false };

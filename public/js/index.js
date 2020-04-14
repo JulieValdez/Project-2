@@ -18,8 +18,11 @@ var passwordInput = $("#inputPassword4");
 var regUserNameInput = $("#registeredUserName");
 var regUserPassword = $("#registeredPass");
 
+
 //func to handle an already registered user to login
 $("#regUserLoginSubmit").on("click", function(event) {
+  console.log("clicked");
+
   event.preventDefault();
   // Don't do anything if a field hasn't been filled out
   if (
@@ -46,6 +49,12 @@ $("#regUserLoginSubmit").on("click", function(event) {
       username: username,
       password: password
     })
+  }).then(function(response) {
+    console.log(response);
+
+    localStorage.setItem("token", response.token);
+
+    window.location.href = "http://localhost:3000/posts";
   });
 });
 
@@ -76,5 +85,15 @@ $("#newUserSubmit").on("click", function(event) {
       password: password,
       email: email
     })
+
+  }).then(function() {
+    window.location.href = "http://localhost:3000/posts";
   });
 });
+
+
+
+$(document).ready(function() {
+  const token = localStorage.getItem("token");
+});
+

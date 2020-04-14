@@ -18,7 +18,6 @@ var passwordInput = $("#inputPassword4");
 var regUserNameInput = $("#registeredUserName");
 var regUserPassword = $("#registeredPass");
 
-
 //func to handle an already registered user to login
 $("#regUserLoginSubmit").on("click", function(event) {
   console.log("clicked");
@@ -54,7 +53,7 @@ $("#regUserLoginSubmit").on("click", function(event) {
 
     localStorage.setItem("token", response.token);
 
-    window.location.href = "http://localhost:3000/posts";
+    window.location.href = "https://project-two-aej.herokuapp.com/posts";
   });
 });
 
@@ -85,15 +84,11 @@ $("#newUserSubmit").on("click", function(event) {
       password: password,
       email: email
     })
-
   }).then(function() {
-    window.location.href = "http://localhost:3000/posts";
+    window.location.href = "https://project-two-aej.herokuapp.com/posts";
   });
 });
-
-
 
 $(document).ready(function() {
   const token = localStorage.getItem("token");
 });
-

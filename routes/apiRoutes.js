@@ -5,6 +5,9 @@ var jwt = require("jwt-simple");
 require("dotenv").config();
 
 var checkJWT = function(req, res, next) {
+  console.log(req.token);
+  console.log("CheckJWT run");
+
   try {
     var user = jwt.decode(req.token, process.env.JWT_SECRET);
   } catch (error) {
@@ -22,6 +25,8 @@ var checkJWT = function(req, res, next) {
 module.exports = function(app) {
   // Get all posts
   app.get("/api/posts", checkJWT, function(req, res) {
+    console.log("GET /api/posts");
+
     db.Post.findAll({
       include: [{ model: db.User, as: "User", attributes: ["username"] }]
     }).then(function(dbPosts) {
@@ -56,6 +61,7 @@ module.exports = function(app) {
       if (!user) {
         return res.send("User not found.");
       }
+
       bcrypt.compare(req.body.password, user.password, function(err, result) {
         if (err) {
           return next({

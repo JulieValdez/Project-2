@@ -19,7 +19,6 @@ var regUserNameInput = $("#registeredUserName");
 var regUserPassword = $("#registeredPass");
 
 
-
 //func to handle an already registered user to login
 $("#regUserLoginSubmit").on("click", function(event) {
   console.log("clicked");
@@ -86,6 +85,7 @@ $("#newUserSubmit").on("click", function(event) {
       password: password,
       email: email
     })
+
   }).then(function() {
     window.location.href = "http://localhost:3000/posts";
   });
@@ -96,3 +96,4 @@ $("#newUserSubmit").on("click", function(event) {
 $(document).ready(function() {
   const token = localStorage.getItem("token");
 });
+

@@ -5,17 +5,20 @@
 var postFeed = $("#allPostFeed");
 
 //AJAX GET and display all posts from db
-$.ajax({
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${localStorage.getItem("token")}`
-  },
-  type: "GET",
-  url: "api/posts"
-}).then(function(data) {
-  // console.log(data);
-  renderPosts(data);
-});
+function displayAllPosts() {
+  $.ajax({
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`
+    },
+    type: "GET",
+    url: "api/posts"
+  }).then(function(data) {
+    // console.log(data);
+    renderPosts(data);
+  });
+}
+displayAllPosts();
 
 //this handles when a user makes a new post
 $("#newPostSubmit").on("click", function(event) {
@@ -49,11 +52,14 @@ $("#newPostSubmit").on("click", function(event) {
 $("select#viewCategoryDrop").change(function() {
   // alert($(this).val());
   let category = $(this).val();
-
-  $.get("api/category/" + category, function(data) {
-    // console.log(data);
-    renderPosts(data);
-  });
+  if (category === "All") {
+    return displayAllPosts();
+  } else {
+    $.get("api/category/" + category, function(data) {
+      // console.log(data);
+      renderPosts(data);
+    });
+  }
 });
 
 //function for rendering posts

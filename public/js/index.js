@@ -2,11 +2,9 @@
 /* eslint-disable no-undef */
 // TO DO:///////////////////////////////
 
-// Login --getting an error, work w/Julie to understand database communication
 // logic for sorting posts by category - tied to db?
-// Logout?
-// click on save button to save to a user's profile
-// make posts look better
+
+// future: click on save button to save to a user's profile & logout
 
 ///////////////////////////////////////
 
